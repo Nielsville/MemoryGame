@@ -10,10 +10,17 @@ public class MainCard : MonoBehaviour {
     {
         if (Card_Back.activeSelf && controller.canReveal)
         {
-            Card_Back.SetActive(false);
+            StartCoroutine(Vals());
             controller.CardRevealed(this);
         }
     }
+    private IEnumerator Vals()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Card_Back.SetActive(false);
+
+    }
+
 
     private int _id;
     public int id
